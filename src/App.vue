@@ -1,16 +1,16 @@
 <template>
   <div class="container mx-auto h-screen flex items-center justify-center">
-    <emoji-container />
+    <emoji-editor />
   </div>
 </template>
 
 <script>
-import EmojiContainer from "./components/EmojiContainer.vue";
+import EmojiEditor from "./components/EmojiEditor.vue";
 
 export default {
   name: "App",
   components: {
-    EmojiContainer,
+    EmojiEditor,
   },
 };
 </script>
