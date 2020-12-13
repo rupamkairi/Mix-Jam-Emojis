@@ -8,18 +8,20 @@
 
 <script>
 import EmojiEditor from "./components/EmojiEditor.vue";
-
 export default {
   name: "App",
   components: {
     EmojiEditor,
+  },
+  setup() {
+    return {};
   },
 };
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
