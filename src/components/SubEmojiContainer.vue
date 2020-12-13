@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
     <div
-      class="bg-transparent outline-none select-none sub-emoji-box"
+      class="outline-none select-none bg-transparent"
       :class="[computed_width_height, !exportMode ? border : '']"
     >
       <div
@@ -65,8 +65,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.sub-emoji-box {
-  font-size: 2rem;
-}
-</style>
+<style scoped></style>

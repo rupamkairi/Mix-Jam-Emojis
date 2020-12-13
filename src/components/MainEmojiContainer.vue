@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
     <div
-      class="bg-transparent outline-none select-none main-emoji-box"
+      class="outline-none select-none bg-transparent"
       :class="[computed_width_height, !exportMode ? border : '']"
     >
       <!-- {{ main_emoji }} -->

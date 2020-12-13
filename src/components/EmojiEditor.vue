@@ -95,13 +95,35 @@ export default {
     });
 
     function exportImage() {
-      console.log(emoji_editor.value);
+      // console.log(emoji_editor.value);
 
       html2canvas(emoji_editor.value).then((canvas) => {
-        console.log(canvas);
-        document.body.appendChild(canvas);
-        var img = canvas.toDataURL();
-        window.open(img);
+        // console.log(canvas);
+
+        // TODO: Changing white background into transparent one.
+        // let ctx = canvas.getContext("2d");
+        // let image = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        // let imageData = image.data;
+        // let len = imageData.length;
+        // for (let i = 0; i < len; i += 4) {
+        //   if (
+        //     imageData[i] == 255 &&
+        //     imageData[i + 1] == 255 &&
+        //     imageData[i + 2] == 255
+        //   ) {
+        //     imageData[i + 3] = 50;
+        //   }
+        // }
+        // console.log(imageData);
+        // let newImage = ctx.createImageData(canvas.width, canvas.height);
+        // ctx.putImageData(newImage, 0, 0);
+
+        let img = canvas.toDataURL("image/png");
+
+        var link = document.createElement("a");
+        link.download = "mixjam-emoji.png";
+        link.href = img;
+        link.click();
       });
     }
 
