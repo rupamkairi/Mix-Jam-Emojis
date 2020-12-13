@@ -1,20 +1,20 @@
 <template>
-  <div class="flex mt-8">
+  <div class="flex">
     <div
-      class="rounded border-solid border-4 border-red-500 outline-none select-none sub-emoji-box"
+      class="rounded border-solid border-2 border-red-500 outline-none select-none bg-transparent sub-emoji-box"
       :class="computed_width_height"
     >
-      <!-- {{ main_emoji }} -->
-      <div class="bg-red-200 w-full h-full"></div>
+      <div
+        class="w-full h-full bg-transparent"
+        :style="{ fontSize: computed_fontSize + 'rem' }"
+      >
+        {{ sub_emoji }}
+      </div>
     </div>
-    <div class="flex flex-col font-bold text-lg text-red-700 ml-2">
+    <div class="flex flex-col justify-end font-bold text-lg text-red-700 ml-2">
       <span>
-        Width:
-        <input class="outline-none w-10" type="text" v-model="main_width" />
-      </span>
-      <span>
-        Height:
-        <input class="outline-none w-10" type="text" v-model="main_height" />
+        Size:
+        <input class="outline-none w-10" type="text" v-model="main_size" />
       </span>
     </div>
   </div>
@@ -25,26 +25,30 @@ import { computed, ref } from "vue";
 export default {
   name: "SubEmojiContainer",
   props: {
-    width: {
+    size: {
       type: String,
       required: true,
     },
-    height: {
+    emoji: {
       type: String,
       required: true,
     },
   },
   setup(props) {
-    const main_width = ref(props.width);
-    const main_height = ref(props.height);
-    const computed_width_height = computed(
-      () => `w-${16 * main_width.value} h-${16 * main_height.value}`
-    );
-    // const main_emoji = ref("💻");
-    // const sub_emoji = ref("🚀");
-    // return { main_emoji, sub_emoji };
+    const main_size = ref(props.size);
+    const sub_emoji = ref(props.emoji);
 
-    return { main_width, main_height, computed_width_height };
+    const computed_fontSize = computed(() => 2.5 * main_size.value);
+    const computed_width_height = computed(
+      () => `w-${16 * main_size.value} h-${16 * main_size.value}`
+    );
+
+    return {
+      main_size,
+      computed_width_height,
+      computed_fontSize,
+      sub_emoji,
+    };
   },
 };
 </script>
